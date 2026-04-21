@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 import { PLATFORM_URL } from "@/lib/proofrr-content";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import { Reveal } from "@/components/reveal";
+import { WordReveal } from "@/components/word-reveal";
 
 type CtaSectionProps = {
   className?: string;
@@ -17,31 +16,28 @@ export function CtaSection({ className }: CtaSectionProps) {
       <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(235,241,255,0.95)_34%,rgba(212,225,255,0.95)_100%)] px-5 pt-12 shadow-[0_26px_60px_rgba(53,99,240,0.12)] sm:px-8 md:px-10 md:pt-16">
         <div className="proofrr-grid-fade opacity-65" />
         <div className="relative z-10 flex flex-col items-center text-center">
-          <Reveal className="max-w-3xl">
-            <h2 className="font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl md:text-6xl">
-              Take your creative workflow to the next level!
-            </h2>
+          <div className="max-w-3xl">
+            <WordReveal
+              as="h2"
+              className="font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl md:text-6xl"
+              text="Take your creative workflow to the next level!"
+            />
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#606266] sm:text-lg">
               Revolutionise your workflow with the most effective collaboration
               tool. Perfect for freelancers, agencies and marketing teams.
             </p>
-          </Reveal>
+          </div>
 
           <Reveal delay={0.08} className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-            <Link
+            <ProofrrLinkButton
               href={PLATFORM_URL}
+              label="Get Started"
               target="_blank"
               rel="noreferrer"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "proofrr-button-shadow h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white hover:brightness-105"
-              )}
-            >
-              Get Started
-              <span className="ml-2 flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#3563f0]">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
+              withArrow
+              arrowClassName="h-7 w-7"
+              className="proofrr-button-shadow h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white"
+            />
             <div className="rounded-full border border-[#1f1f20] bg-[#101011] px-5 py-3 text-sm font-medium text-white shadow-[0_16px_30px_rgba(16,16,17,0.18)]">
               Mobile app coming soon
             </div>

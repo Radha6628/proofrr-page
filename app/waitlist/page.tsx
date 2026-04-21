@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 import { HOME_FEATURES, PLATFORM_URL } from "@/lib/proofrr-content";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import { CtaSection } from "@/components/cta-section";
+import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
@@ -43,20 +42,15 @@ export default function WaitlistPage() {
               ))}
             </div>
 
-            <Link
+            <ProofrrLinkButton
               href={PLATFORM_URL}
+              label="Sign Up for the Beta"
               target="_blank"
               rel="noreferrer"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "proofrr-button-shadow mt-9 inline-flex h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white hover:brightness-105"
-              )}
-            >
-              Sign Up for the Beta
-              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#3563f0]">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
+              withArrow
+              arrowClassName="h-7 w-7"
+              className="proofrr-button-shadow mt-9 inline-flex h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white"
+            />
           </Reveal>
 
           <Reveal delay={0.08}>

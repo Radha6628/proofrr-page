@@ -8,6 +8,7 @@ import { Menu, Sparkles } from "lucide-react";
 import { NAV_LINKS, PLATFORM_URL } from "@/lib/proofrr-content";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import {
   Sheet,
   SheetContent,
@@ -36,8 +37,7 @@ export function SiteHeader() {
               alt="Proofrr"
               width={84}
               height={26}
-              className="h-auto w-[84px]"
-              style={{ height: "auto" }}
+              style={{ width: 84, height: "auto" }}
               priority
             />
           </Link>
@@ -58,17 +58,13 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Link
+            <ProofrrLinkButton
               href={PLATFORM_URL}
+              label="Sign in"
               target="_blank"
               rel="noreferrer"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "proofrr-button-shadow h-12 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-8 text-[15px] font-semibold text-white hover:brightness-105"
-              )}
-            >
-              Sign in
-            </Link>
+              className="proofrr-button-shadow h-12 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-8 text-[15px] font-semibold text-white"
+            />
           </div>
 
           <div className="lg:hidden">
@@ -89,8 +85,7 @@ export function SiteHeader() {
                     alt="Proofrr"
                     width={92}
                     height={28}
-                    className="h-auto w-[92px]"
-                    style={{ height: "auto" }}
+                    style={{ width: 92, height: "auto" }}
                   />
                   <SheetTitle className="mt-4 text-xl font-semibold">
                     Navigate Proofrr

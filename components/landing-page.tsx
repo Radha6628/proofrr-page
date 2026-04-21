@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Check,
-  MessageSquare,
-} from "lucide-react";
+import { Check, MessageSquare } from "lucide-react";
 
 import {
+  HERO_DEMO_VIDEO_URL,
   HOME_FEATURES,
   INTEGRATIONS,
   INTEGRATIONS_URL,
@@ -18,7 +15,6 @@ import {
 } from "@/lib/proofrr-content";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -27,7 +23,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CtaSection } from "@/components/cta-section";
+import { ProofrrDemoVideo } from "@/components/proofrr-demo-video";
+import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import { Reveal } from "@/components/reveal";
+import { WordReveal } from "@/components/word-reveal";
 
 const integrationDots = [
   { top: 44, left: "14%" },
@@ -41,72 +40,80 @@ export function LandingPage() {
   return (
     <div className="pb-24">
       <section className="container-shell relative pt-14 md:pt-20">
-        <div className="relative overflow-hidden rounded-[2rem] bg-white px-4 pb-20 pt-6 sm:px-8 md:px-10 md:pt-10">
+        <div className="relative overflow-hidden rounded-[2rem] bg-white px-4 pb-14 pt-6 sm:px-8 md:px-10 md:pb-20 md:pt-10">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(112,165,255,0.18),transparent_70%)]" />
+          <div className="proofrr-hero-plane absolute inset-x-6 bottom-0 h-60 origin-top [transform:perspective(100px)_rotateX(44deg)] opacity-50 sm:inset-x-10" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_top,white,transparent)]" />
 
-          <Reveal className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="flex items-center gap-3 rounded-full border border-[#f0f2f6] bg-white/90 px-3 py-1.5 shadow-[0_10px_24px_rgba(16,16,17,0.05)]">
+          <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
+            <Reveal
+              delay={0.2}
+              className="flex items-center gap-3 rounded-full border border-[#f0f2f6] bg-white/90 px-3 py-1.5 shadow-[0_10px_24px_rgba(16,16,17,0.05)]"
+            >
               <Badge className="rounded-full bg-[#101011] px-3 py-1 text-white hover:bg-[#101011]">
                 New
               </Badge>
               <span className="text-sm font-medium text-[#2b2b2c]">
                 Revolutionize your project workflow
               </span>
-            </div>
+            </Reveal>
 
-            <h1 className="mt-8 font-heading text-[3.15rem] leading-[0.92] font-bold tracking-[-0.05em] text-[#27418d] sm:text-[4.5rem] md:text-[6.75rem]">
-              Go from draft to
-              <span className="mt-2 block text-[#3563f0]">
+            <h1 className="mt-8 max-w-5xl bg-[linear-gradient(0deg,#427eff_0%,#000000_143%)] bg-clip-text font-heading text-[3.1rem] leading-[0.92] font-bold tracking-[-0.05em] text-transparent sm:text-[4.7rem] md:text-[6.75rem]">
+              <span className="hidden md:inline">
+                Go from draft to approved - 3x faster
+              </span>
+              <span className="md:hidden">
+                Go from draft to
+                <br />
                 approved - 3x faster
               </span>
             </h1>
 
-            <p className="mt-8 max-w-3xl text-lg leading-8 text-[#606266] sm:text-xl">
-              Manage projects, collect feedback, and get client approvals — all
-              in one simple, AI-powered workspace.
-            </p>
+            <Reveal delay={1} duration={1} className="mt-8 max-w-3xl">
+              <p className="text-lg leading-8 text-[#606266] sm:text-xl">
+                Manage projects, collect feedback, and get client approvals —
+                all in one simple, AI-powered workspace.
+              </p>
+            </Reveal>
 
-            <Link
-              href={PLATFORM_URL}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "proofrr-button-shadow mt-9 h-14 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-7 text-[16px] font-semibold text-white hover:brightness-105"
-              )}
-            >
-              Sign Up for the Beta
-              <span className="ml-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#3563f0]">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-          </Reveal>
-
-          <div className="relative mt-10 h-[420px] sm:h-[520px] md:h-[640px]">
-            <div className="proofrr-hero-plane absolute inset-x-0 top-6 h-[250px] origin-top [transform:perspective(1200px)_rotateX(72deg)] opacity-90" />
-            <div className="absolute inset-x-0 top-0 h-44 bg-[linear-gradient(to_bottom,white,rgba(255,255,255,0.4),transparent)]" />
-            <div className="absolute bottom-5 right-2 flex items-center gap-2 sm:right-4">
-              <div className="flex h-11 w-6 items-center justify-center rounded-full border border-[#d9dce6] bg-white shadow-[0_8px_18px_rgba(16,16,17,0.08)]">
-                <div className="h-5 w-3 rounded-full bg-[#101011]" />
-              </div>
-              <div className="flex h-11 w-6 items-center justify-center rounded-full border border-[#d9dce6] bg-white shadow-[0_8px_18px_rgba(16,16,17,0.08)]">
-                <div className="h-5 w-3 rounded-full bg-[#101011]" />
-              </div>
-            </div>
+            <Reveal delay={1.2} duration={1} className="mt-9">
+              <ProofrrLinkButton
+                href={PLATFORM_URL}
+                label="Sign Up for the Beta"
+                target="_blank"
+                rel="noreferrer"
+                withArrow
+                className="proofrr-button-shadow h-14 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-7 text-[16px] font-semibold text-white"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="container-shell pt-6 md:pt-10">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#3563f0]">
-            The ultimate platform for marketing teams
-          </p>
-          <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl">
-            One place for your brand’s creatives — upload, share, get approvals.
-            Zero chaos.
-          </h2>
+      <section className="container-shell pt-4 md:pt-6">
+        <Reveal className="overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-[0_24px_60px_rgba(16,16,17,0.12)]">
+          <ProofrrDemoVideo
+            src={HERO_DEMO_VIDEO_URL}
+            poster="/proofrr/dashboard.png"
+          />
         </Reveal>
+      </section>
+
+      <section className="container-shell pt-6 md:pt-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#3563f0]">
+              The ultimate platform for marketing teams
+            </p>
+          </Reveal>
+          <WordReveal
+            as="h2"
+            delay={0.08}
+            containerClassName="mt-4"
+            className="font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl"
+            text="One place for your brand’s creatives — upload, share, get approvals. Zero chaos."
+          />
+        </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {HOME_FEATURES.map((feature, index) => (
@@ -238,9 +245,13 @@ export function LandingPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#3563f0]">
               One platform, unlimited integrations
             </p>
-            <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl">
-              Connect the tools your team already relies on.
-            </h2>
+            <WordReveal
+              as="h2"
+              delay={0.08}
+              containerClassName="mt-4"
+              className="font-heading text-4xl font-semibold tracking-tight text-[#101011] sm:text-5xl"
+              text="Connect the tools your team already relies on."
+            />
             <p className="mt-5 max-w-xl text-lg leading-8 text-[#606266]">
               Proofrr sits in the middle of your review process so files,
               calendars, calls, AI tools, and delivery workflows stay connected.

@@ -14,13 +14,16 @@ export function SiteFooter() {
         <div className="rounded-t-[2rem] bg-[#101011] px-6 py-14 md:px-10">
           <div className="grid gap-12 lg:grid-cols-[1.35fr_0.85fr_0.85fr]">
             <div className="space-y-6">
-              <Image
-                src="/proofrr/logo-footer.svg"
-                alt="Proofrr"
-                width={186}
-                height={60}
-                className="h-auto w-[156px] sm:w-[186px]"
-              />
+              <div className="w-[156px] sm:w-[186px]">
+                <Image
+                  src="/proofrr/logo-footer.svg"
+                  alt="Proofrr"
+                  width={186}
+                  height={60}
+                  className="w-full"
+                  style={{ height: "auto" }}
+                />
+              </div>
               <div>
                 <p className="text-sm font-medium text-[#a7a7a7]">Follow us on:</p>
                 <div className="mt-4 flex items-center gap-3">

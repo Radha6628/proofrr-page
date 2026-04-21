@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 import { ABOUT_BULLETS, PLATFORM_URL } from "@/lib/proofrr-content";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import { CtaSection } from "@/components/cta-section";
+import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
@@ -85,20 +82,15 @@ export default function AboutPage() {
                 creative work can move without scattered context.
               </p>
 
-              <Link
+              <ProofrrLinkButton
                 href={PLATFORM_URL}
+                label="Get Started"
                 target="_blank"
                 rel="noreferrer"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "proofrr-button-shadow mt-8 inline-flex h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white hover:brightness-105"
-                )}
-              >
-                Get Started
-                <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-white text-[#3563f0]">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
+                withArrow
+                arrowClassName="h-7 w-7"
+                className="proofrr-button-shadow mt-8 inline-flex h-13 rounded-full border-0 bg-[linear-gradient(180deg,#4d7fff_0%,#3563f0_100%)] px-6 text-[15px] font-semibold text-white"
+              />
             </div>
           </Reveal>
         </div>

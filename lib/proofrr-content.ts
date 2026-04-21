@@ -1,5 +1,7 @@
 export const PLATFORM_URL = "https://platform.proofrr.com/";
 export const INTEGRATIONS_URL = "https://www.framer.com/plugins/";
+export const HERO_DEMO_VIDEO_URL =
+  "https://res.cloudinary.com/djxnyqaya/video/upload/v1776800024/intovideo_c9efjh.mp4";
 
 export const NAV_LINKS = [
   { href: "/about", label: "About" },
