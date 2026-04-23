@@ -28,13 +28,31 @@ import { ProofrrLinkButton } from "@/components/proofrr-link-button";
 import { Reveal } from "@/components/reveal";
 import { WordReveal } from "@/components/word-reveal";
 
-const integrationDots = [
-  { top: 44, left: "14%" },
-  { top: 44, left: "32%" },
-  { top: 44, left: "50%" },
-  { top: 44, left: "68%" },
-  { top: 44, left: "86%" },
+const INTEGRATION_CONNECTORS = [
+  {
+    path: "M 50 20 C 50 112, 188 146, 250 236",
+    delay: "0s",
+  },
+  {
+    path: "M 150 20 C 150 126, 224 164, 250 236",
+    delay: "0.2s",
+  },
+  {
+    path: "M 250 20 L 250 236",
+    delay: "0.4s",
+  },
+  {
+    path: "M 350 20 C 350 126, 276 164, 250 236",
+    delay: "0.6s",
+  },
+  {
+    path: "M 450 20 C 450 112, 312 146, 250 236",
+    delay: "0.8s",
+  },
 ] as const;
+
+const INTEGRATION_HUB_LOGO_SRC =
+  "https://res.cloudinary.com/djxnyqaya/image/upload/v1766374668/Proofrr_Square_Logo_1_xvxkqb.svg";
 
 export function LandingPage() {
   return (
@@ -198,24 +216,40 @@ export function LandingPage() {
               <div className="relative mx-auto flex min-h-[360px] max-w-[520px] items-end justify-center pb-8 pt-6">
                 <svg
                   viewBox="0 0 500 260"
-                  className="absolute inset-x-0 top-12 h-[230px] w-full"
+                  preserveAspectRatio="none"
+                  className="pointer-events-none absolute inset-x-0 top-12 h-[230px] w-full"
                   aria-hidden="true"
                 >
-                  {integrationDots.map((dot, index) => (
-                    <path
-                      key={dot.left}
-                      d={`M ${70 + index * 90} 20 C ${70 + index * 90} 120, 250 130, 250 235`}
-                      fill="none"
-                      stroke="rgba(112, 165, 255, 0.4)"
-                      strokeWidth="2"
-                    />
+                  {INTEGRATION_CONNECTORS.map((connector) => (
+                    <g key={connector.path}>
+                      <path
+                        d={connector.path}
+                        pathLength={100}
+                        fill="none"
+                        stroke="rgba(112, 165, 255, 0.5)"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        vectorEffect="non-scaling-stroke"
+                      />
+                      <path
+                        d={connector.path}
+                        pathLength={100}
+                        fill="none"
+                        stroke="rgba(255, 255, 255, 0.9)"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        vectorEffect="non-scaling-stroke"
+                        className="proofrr-connector-flow"
+                        style={{ animationDelay: connector.delay }}
+                      />
+                    </g>
                   ))}
                 </svg>
-                <div className="absolute inset-x-0 top-0 flex justify-between gap-4 px-2 sm:px-4">
+                <div className="absolute inset-x-0 top-0 grid grid-cols-5 gap-3 px-2 sm:px-4">
                   {INTEGRATIONS.map((integration) => (
                     <div
                       key={integration.alt}
-                      className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-[0_12px_24px_rgba(16,16,17,0.08)] sm:h-18 sm:w-18"
+                      className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-[0_12px_24px_rgba(16,16,17,0.08)] sm:h-18 sm:w-18"
                     >
                       <Image
                         src={integration.src}
@@ -228,15 +262,15 @@ export function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <div className="proofrr-button-shadow flex h-24 w-24 items-center justify-center rounded-[1.65rem] bg-[linear-gradient(180deg,#3e75ff_0%,#3563f0_100%)]">
-                  <Image
-                    src="/proofrr/logo-mark.svg"
-                    alt="Proofrr mascot"
-                    width={64}
-                    height={64}
-                    className="h-16 w-16"
-                  />
-                </div>
+                <Image
+                  src={INTEGRATION_HUB_LOGO_SRC}
+                  alt="Proofrr logo"
+                  width={96}
+                  height={96}
+                  loading="eager"
+                  unoptimized
+                  className="proofrr-button-shadow h-24 w-24 rounded-[1.65rem]"
+                />
               </div>
             </div>
           </Reveal>

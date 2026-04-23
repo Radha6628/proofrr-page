@@ -163,4 +163,36 @@
       radial-gradient(circle at top center, rgba(53, 99, 240, 0.18), transparent 26%),
       #101011;
   }
+
+  .proofrr-connector-flow {
+    stroke-dasharray: 18 82;
+    stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 8px rgba(112, 165, 255, 0.45));
+    animation: proofrr-connector-flow 3.4s ease-in-out infinite;
+  }
+}
+
+@keyframes proofrr-connector-flow {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 100;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proofrr-connector-flow {
+    animation: none;
+    opacity: 0.6;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
 }
