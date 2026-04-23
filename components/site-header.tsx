@@ -18,6 +18,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+const NAV_LOGO_SRC = "/proofrr/logo-nav.svg";
+
 const isActive = (pathname: string, href: string) =>
   href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
@@ -30,14 +32,15 @@ export function SiteHeader() {
         <div className="proofrr-nav-shadow flex items-center justify-between rounded-[2rem] border border-[#cfe0ff] bg-[rgba(240,242,246,0.84)] px-3 py-3 backdrop-blur-xl md:px-6">
           <Link
             href="/"
-            className="proofrr-button-shadow flex h-12 items-center rounded-full bg-[linear-gradient(180deg,#3e75ff_0%,#3563f0_100%)] px-4"
+            aria-label="Proofrr home"
+            className="inline-flex shrink-0 items-center rounded-full"
           >
             <Image
-              src="/proofrr/logo-nav.svg"
+              src={NAV_LOGO_SRC}
               alt="Proofrr"
-              width={84}
-              height={26}
-              style={{ width: 84, height: "auto" }}
+              width={640}
+              height={288}
+              className="h-auto w-[104px] md:w-[112px]"
               priority
             />
           </Link>
@@ -81,11 +84,11 @@ export function SiteHeader() {
               >
                 <SheetHeader className="border-b border-[#eef2fb] px-5 py-6">
                   <Image
-                    src="/proofrr/logo-nav.svg"
+                    src={NAV_LOGO_SRC}
                     alt="Proofrr"
-                    width={92}
-                    height={28}
-                    style={{ width: 92, height: "auto" }}
+                    width={640}
+                    height={288}
+                    className="h-auto w-[108px]"
                   />
                   <SheetTitle className="mt-4 text-xl font-semibold">
                     Navigate Proofrr
