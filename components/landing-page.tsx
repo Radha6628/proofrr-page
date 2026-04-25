@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Check, MessageSquare } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import {
   HERO_DEMO_VIDEO_URL,
@@ -361,38 +361,40 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="container-shell pt-20 md:pt-28">
-        <div className="relative overflow-hidden rounded-[2rem] bg-white px-5 py-10 sm:px-8 md:px-10">
-          <div className="proofrr-grid-fade opacity-90" />
-          <div className="relative z-10">
-            <Reveal className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#3563f0]">
-                The perfect review solution for every workflow
-              </p>
+      <section
+        id="workflows"
+        className="relative mt-20 scroll-mt-28 overflow-hidden bg-white py-16 md:mt-28 md:py-24 lg:py-32"
+      >
+        <div className="proofrr-grid absolute inset-0 opacity-55" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.34)_42%,rgba(255,255,255,0.7)_100%)]" />
+        <div className="relative z-10 mx-auto w-full max-w-[1868px] px-6 sm:px-10 lg:px-12 2xl:px-0">
+          <div className="grid items-center gap-14 lg:grid-cols-2 xl:gap-16">
+            <Reveal>
+              <div className="flex aspect-[1.205] items-center justify-center overflow-hidden rounded-[2.4rem] bg-[#f0f2f6]">
+                <Image
+                  src="/proofrr/candidate-qed.png"
+                  alt="Comment workflow"
+                  width={1000}
+                  height={1000}
+                  loading="eager"
+                  className="h-[87%] w-auto max-w-none rounded-[1.7rem]"
+                />
+              </div>
             </Reveal>
-            <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_0.92fr]">
+            <div className="mx-auto w-full max-w-[900px]">
               <Reveal>
-                <div className="overflow-hidden rounded-[2rem] bg-[#f0f2f6] p-4 shadow-[0_20px_50px_rgba(16,16,17,0.08)]">
-                  <Image
-                    src="/proofrr/candidate-qed.png"
-                    alt="Comment workflow"
-                    width={1000}
-                    height={1000}
-                    loading="eager"
-                    className="h-auto w-full rounded-[1.5rem]"
-                  />
-                </div>
+                <h2 className="text-center font-heading text-[1rem] font-bold leading-[0.95] tracking-[-0.04em] text-[#101011] sm:text-[4.25rem] lg:text-[3.7rem] xl:text-[3.2rem]">
+                  The perfect review solution for every workflow
+                </h2>
               </Reveal>
-              <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+              <div className="mt-12 grid gap-x-14 gap-y-4 sm:grid-cols-2 lg:mt-20">
                 {WORKFLOWS.map((workflow, index) => (
                   <Reveal
                     key={workflow}
                     delay={index * 0.04}
-                    className="flex items-center gap-3 text-lg font-medium text-[#2b2b2c]"
+                    className="flex items-center gap-5 text-[1.35rem] font-semibold leading-tight text-[#2b2b2c] md:text-[1.55rem]"
                   >
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#edf2ff] text-[#3563f0]">
-                      <MessageSquare className="h-4 w-4" />
-                    </span>
+                    <ArrowRight className="h-7 w-7 shrink-0 stroke-[2.2] text-[#5235ef]" />
                     <span>{workflow}</span>
                   </Reveal>
                 ))}
