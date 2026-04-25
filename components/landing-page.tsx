@@ -58,10 +58,8 @@ export function LandingPage() {
   return (
     <div className="pb-24">
       <section className="container-shell relative pt-14 md:pt-20">
-        <div className="relative overflow-hidden rounded-[2rem] bg-white px-4 pb-14 pt-6 sm:px-8 md:px-10 md:pb-20 md:pt-10">
-          <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,rgba(112,165,255,0.18),transparent_70%)]" />
+        <div className="relative overflow-hidden px-4 pb-14 pt-6 sm:px-8 md:px-10 md:pb-20 md:pt-10">
           <div className="proofrr-hero-plane absolute inset-x-6 bottom-0 h-60 origin-top [transform:perspective(100px)_rotateX(44deg)] opacity-50 sm:inset-x-10" />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_top,white,transparent)]" />
 
           <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
             <Reveal
