@@ -31,22 +31,27 @@ import { WordReveal } from "@/components/word-reveal";
 const INTEGRATION_CONNECTORS = [
   {
     path: "M 50 20 C 50 112, 188 146, 250 236",
+    flowPath: "M 250 236 C 188 146, 50 112, 50 20",
     delay: "0s",
   },
   {
     path: "M 150 20 C 150 126, 224 164, 250 236",
+    flowPath: "M 250 236 C 224 164, 150 126, 150 20",
     delay: "0.2s",
   },
   {
     path: "M 250 20 L 250 236",
+    flowPath: "M 250 236 L 250 20",
     delay: "0.4s",
   },
   {
     path: "M 350 20 C 350 126, 276 164, 250 236",
+    flowPath: "M 250 236 C 276 164, 350 126, 350 20",
     delay: "0.6s",
   },
   {
     path: "M 450 20 C 450 112, 312 146, 250 236",
+    flowPath: "M 250 236 C 312 146, 450 112, 450 20",
     delay: "0.8s",
   },
 ] as const;
@@ -189,8 +194,8 @@ export function LandingPage() {
           </div>
 
           <Reveal delay={0.12}>
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#f0f2f6] p-5 sm:p-8">
-              <div className="proofrr-grid absolute inset-0 opacity-40" />
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#f7f9fd] p-5 sm:p-8">
+              <div className="proofrr-grid-surface opacity-95" />
               <div className="relative z-10 overflow-hidden rounded-[2rem] bg-white/90 shadow-[0_24px_50px_rgba(16,16,17,0.08)]">
                 <Image
                   src="/proofrr/candidate-trgl.png"
@@ -209,9 +214,10 @@ export function LandingPage() {
       <section id="integrations" className="container-shell pt-20 md:pt-28">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#f0f2f6] p-6 sm:p-8">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#f7f9fd] p-6 sm:p-8">
+              <div className="proofrr-grid-surface opacity-95" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center_bottom,rgba(53,99,240,0.08),transparent_52%)]" />
-              <div className="relative mx-auto flex min-h-[360px] max-w-[520px] items-end justify-center pb-8 pt-6">
+              <div className="relative z-10 mx-auto flex min-h-[360px] max-w-[520px] items-end justify-center pb-8 pt-6">
                 <svg
                   viewBox="0 0 500 260"
                   preserveAspectRatio="none"
@@ -230,11 +236,11 @@ export function LandingPage() {
                         vectorEffect="non-scaling-stroke"
                       />
                       <path
-                        d={connector.path}
+                        d={connector.flowPath}
                         pathLength={100}
                         fill="none"
-                        stroke="rgba(255, 255, 255, 0.9)"
-                        strokeWidth="1.6"
+                        stroke="#3563f0"
+                        strokeWidth="2.8"
                         strokeLinecap="round"
                         vectorEffect="non-scaling-stroke"
                         className="proofrr-connector-flow"
