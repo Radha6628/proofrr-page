@@ -343,21 +343,35 @@ export function LandingPage() {
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {MINOR_BENEFITS.map((item, index) => (
-              <Reveal key={item.title} delay={0.12 + index * 0.05}>
-                <div className="rounded-[1.6rem] border border-[#2b2b2c] bg-[#2b2b2c] px-5 py-5">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
-                    <Check className="h-5 w-5 text-white" />
-                  </div>
-                  <h4 className="font-heading text-2xl font-semibold text-white">
-                    {item.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-7 text-[#a7a7a7]">
-                    {item.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+       {MINOR_BENEFITS.map((item, index) => (
+  <Reveal key={item.title} delay={0.12 + index * 0.05}>
+    <div 
+      // Yahan "h-full flex flex-col" add karo
+      className={`rounded-[1.6rem] border transition-all duration-300 p-6 h-full flex flex-col ${ 
+        item.type === 'design' 
+          ? 'border-orange-500/50 bg-[#2b2b2c]' 
+          : 'border-blue-500/50 bg-[#2b2b2c]'
+      }`}
+    >
+      {/* Icon Section */}
+      <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-full ${
+        item.type === 'design' ? 'bg-orange-500/20 text-orange-400' : 'bg-blue-500/20 text-blue-400'
+      }`}>
+        <Check className="h-5 w-5" />
+      </div>
+
+      {/* Content Section */}
+      <div className="flex-1"> {/* Flex-1 content ko push karega */}
+        <h4 className="font-heading text-2xl font-semibold text-white">
+          {item.title}
+        </h4>
+        <p className="mt-2 text-sm leading-7 text-[#a7a7a7]">
+          {item.description}
+        </p>
+      </div>
+    </div>
+  </Reveal>
+))}
           </div>
         </div>
       </section>

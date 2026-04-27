@@ -113,11 +113,13 @@ export const MINOR_BENEFITS = [
     title: "Effortless design experience",
     description:
       "Minimal UI that stays out of your way while you focus on the work.",
+      type:"design"
   },
   {
     title: "Easy collaboration",
     description:
       "Collaborate with team members effortlessly on image creatives, videos and documents.",
+      type:"Easy collaboration"
   },
 ] as const;
 
